@@ -6,7 +6,7 @@ import AlbumContainer from './Components/AlbumContainer/AlbumContainer';
 function App() {
   const [serverError, setServerError] = useState({hasError: true, message: ''})
   const [albums, setAlbums] = useState([])
-
+  
 useEffect(() => {
   getAlbums()
     .then(data => {
@@ -20,7 +20,7 @@ useEffect(() => {
 
   return (
     <div className="App">
-      <AlbumContainer albums={albums} />
+      <AlbumContainer albums={albums} setServerError={setServerError} />
     </div>
   );
 }
