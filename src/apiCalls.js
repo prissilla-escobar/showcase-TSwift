@@ -1,13 +1,28 @@
-export function getAlbums() {
-    return fetch("https://taylor-swift-api.sarbo.workers.dev/albums").then(
-      (response) => {
+// export function getAlbums() {
+//     return fetch("https://taylor-swift-api.sarbo.workers.dev/albums").then(
+//       (response) => {
+//         if (!response.ok) {
+//           throw new Error(`Album not found.`);
+//         }
+//         return response.json();
+//       }
+//     );
+//   }
+
+// Is async necessary? Otherwise the .map() randomly does not work
+
+  export async function getAlbums() {
+    let Url = 'https://taylor-swift-api.sarbo.workers.dev/albums'
+    try {
+        const response = await fetch(Url);
         if (!response.ok) {
-          throw new Error(`Album not found.`);
+            throw new Error(`Album not found.`)
         }
-        return response.json();
-      }
-    );
-  }
+        return response.json()
+    } catch (error) {
+        throw new Error(`Error fetching albums: ${error.message}`)
+    }
+}
 
 export function getAlbumSongs(albumId) {
 return fetch(`https://taylor-swift-api.sarbo.workers.dev/albums/${albumId}`).then(
