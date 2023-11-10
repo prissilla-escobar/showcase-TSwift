@@ -1,4 +1,4 @@
-body::after {
+.home-page::after {
     content: '';
     position: fixed;
     top: 0;
