@@ -88,3 +88,114 @@ body {
     -webkit-text-stroke: .2px black;
     text-stroke: .2px black;
   }
+
+  @media screen and (max-width: 980px) {
+    .selected-album-image {
+        height: 8em;
+    }
+    
+    .selected-album-song-list {
+        font-size: 1.4em;
+    }
+    
+    .songss {
+        transition: transform .5s;
+      }
+    
+      .songss:hover {
+        transform: scale(1.06);
+      }
+
+      .selected-album-songs, .song-lyrics-container {
+        width: 40%;
+        margin-left: 2em;
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    .selected-album-image {
+        height: 7em;
+    }
+    
+    .selected-album-song-list {
+        font-size: 1.2em;
+    }
+
+      .selected-album-songs, .song-lyrics-container {
+        width: 40%;
+        margin-left: 2em;
+    }
+  }
+
+  @media screen and (max-width: 385px) {
+    .selected-song-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .selected-album-image {
+        height: 8em;
+    }
+    
+    .selected-album-song-list {
+        font-size: 1.2em;
+    }
+    
+    .songss {
+        transition: transform .5s;
+      }
+    
+    .songss:hover {
+    transform: scale(1.07);
+    }
+
+    .selected-album-songs, .song-lyrics-container {
+    width: 80%;
+    margin-left: 2.5em;
+    }
+
+    .selected-album-songs {
+        margin-top: 3em;
+    }
+
+    .song-lyrics-container {
+        margin-bottom: 0em;
+    }
+  }
+
+  @media screen and (max-width: 275px) {
+    .selected-song-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .selected-album-image {
+        height: 8em;
+    }
+    
+    .selected-album-song-list {
+        font-size: 1.2em;
+    }
+    
+    .songss {
+        transition: transform .5s;
+      }
+    
+    .songss:hover {
+    transform: scale(1.07);
+    }
+
+    .selected-album-songs, .song-lyrics-container {
+    width: 80%;
+    margin-left: 1em;
+    }
+
+    .selected-album-songs {
+        margin-top: 3em;
+    }
+
+    .song-lyrics-container {
+        margin-bottom: 0em;
+    }
+}
+  
