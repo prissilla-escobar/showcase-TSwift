@@ -1,5 +1,4 @@
 import './AlbumContainer.css'
-import PropTypes from 'prop-types'
 import AlbumCard from '../AlbumCard/AlbumCard'
 
 function AlbumContainer({ albums, setServerError }) {
