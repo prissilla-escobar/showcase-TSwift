@@ -29,7 +29,11 @@ function AlbumCard( { album_id, title, setServerError } ) {
 
     const albumSongsList = songs.map((song) => {
         if (song.album_id === album_id) {
-            return <div className='songs'> {song.title} </div>
+            return (
+                <Link to={`/song/${song.song_id}`} key={song.song_id} style={{color: `inherit`, textDecoration: `inherit`}} className='songs'>
+                    {song.title}
+                </Link>
+            )
         }
     })
 
