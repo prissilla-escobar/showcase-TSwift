@@ -32,3 +32,13 @@
     color: rgb(0, 0, 0);
     cursor: pointer;
   }
+
+  @media screen and (max-width: 500px) {
+    .serverError {
+      font-size: 1.75rem;
+    }
+    
+    .error-image {
+      height: 6em;
+    }
+  }
