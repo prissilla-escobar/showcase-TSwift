@@ -5,7 +5,7 @@ import { useParams, Link } from 'react-router-dom'
 import { albumCovers } from '../../albumCovers'
 import home from '../../Assets/home (3).png'
 
-function SelectedSongLyrics({ setServerError }) {
+function SelectedSongLyrics({ setServerError, setIsLoading }) {
     const [songLyrics, setSongLyrics] = useState('')
     const [songs, setSongs] = useState([])
     const [albumID, setAlbumID] = useState('')
@@ -17,11 +17,13 @@ function SelectedSongLyrics({ setServerError }) {
         getSongLyrics(id)
           .then(data => {
             setSongLyrics(data)
+            setIsLoading(false)
           })
           .catch(error => {
             setServerError({hasError: true, message: `${error.message}`})
           })
-    }, [id, setServerError])
+          setIsLoading(false)
+    }, [id, setServerError, setIsLoading])
 
     useEffect(() => {
         getAllSongs()
@@ -42,7 +44,8 @@ function SelectedSongLyrics({ setServerError }) {
             .catch(error => {
                 setServerError({ hasError: true, message: `${error.message}` })
             })
-    }, [id, albumCovers, setServerError])
+            setIsLoading(false)
+    }, [parsedId, setServerError, setIsLoading])
 
     const formatedLyrics = (lyrics) => {
         if (lyrics) {
@@ -58,6 +61,8 @@ function SelectedSongLyrics({ setServerError }) {
                     {single.title}
                 </Link>
                 )
+        } else {
+           return null
         }
     })
 
@@ -65,7 +70,7 @@ function SelectedSongLyrics({ setServerError }) {
         <div className='selected-song-container'>
             <div className='song-lyrics-container song-lyrics-background'>
             <Link to={'/'} className='home-container'>
-                <img className='home-button' src={home} style={{color: `inherit`, textDecoration: `inherit`}} />
+                <img className='home-button' alt='icon of a white cartoon house' src={home} style={{color: `inherit`, textDecoration: `inherit`}} />
             </Link>
                 <h2 className='lyrics-title'>{songLyrics.song_title}</h2>
                 <div className='home-button'></div>

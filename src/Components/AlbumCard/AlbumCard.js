@@ -1,5 +1,4 @@
 import './AlbumCard.css'
-import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { albumCovers } from '../../albumCovers'
 import dropdown from '../../Assets/download.png'
@@ -14,6 +13,8 @@ function AlbumCard( { album_id, title, setServerError } ) {
     const singleAlbum = albumCovers.find(album => {
         if (album.id === album_id) {
             return album
+        } else {
+            return null
         }
     })
 
@@ -23,9 +24,9 @@ function AlbumCard( { album_id, title, setServerError } ) {
             setSongs(data)
         })
         .catch((error) => {
-            setServerError({hasError: true, message: `${error.message}`});
+            setServerError({hasError: true, message: `${error.message}`})
           })
-    }, [])
+    }, [setServerError])
 
     const albumSongsList = songs.map((song) => {
         if (song.album_id === album_id) {
@@ -34,6 +35,8 @@ function AlbumCard( { album_id, title, setServerError } ) {
                     {song.title}
                 </Link>
             )
+        } else {
+            return null
         }
     })
 
@@ -50,6 +53,7 @@ function AlbumCard( { album_id, title, setServerError } ) {
                 <div className='album-title'>
                     <img
                         className='openCloseImg'
+                        alt='music symbol with a down arrow to open song list'
                         src={closeList}
                         onClick={handleDropdown}
                     />
@@ -60,6 +64,7 @@ function AlbumCard( { album_id, title, setServerError } ) {
             ) : (
                 <img
                     className='openCloseImg'
+                    alt='music symbol with an up arrow to close song list'
                     src={dropdown}
                     onClick={handleDropdown}
                 />
