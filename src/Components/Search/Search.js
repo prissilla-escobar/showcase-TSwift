@@ -1,4 +1,5 @@
 import './Search.css'
+import PropTypes from 'prop-types'
 
 function Search({ setSearchText }) {
     const handleSubmit = (event) => {
@@ -25,3 +26,7 @@ function Search({ setSearchText }) {
 }
 
 export default Search
+
+Search.propTypes = {
+    setSearchText: PropTypes.func.isRequired,
+}
