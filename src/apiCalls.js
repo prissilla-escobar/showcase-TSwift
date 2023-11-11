@@ -41,13 +41,19 @@ export const getAllSongLyrics = async () => {
     for (let i=1; i<=177; i++) {
         const url = `https://taylor-swift-api.sarbo.workers.dev/lyrics/${i}`
         allLyricsCall.push(fetch(url)
-        .then(response => response.json()))
+        .then(response => response.json())
+        .catch((error) => {
+            console.error(`Error fetching lyrics for song ${i}: ${error.message}`)
+            return null
+          })
+        )
     }
 
     try {
         const allLyrics = await Promise.all(allLyricsCall)
         return allLyrics
     } catch (error) {
+        console.error(`Error in getAllSongLyrics Promise.all: ${error.message}`)
         throw new Error(`Error fetching lyrics: ${error.message}`)
     }
 }
