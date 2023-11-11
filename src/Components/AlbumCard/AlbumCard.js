@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom'
 import { albumCovers } from '../../albumCovers'
 import dropdown from '../../Assets/download.png'
 import closeList from '../../Assets/upload.png'
-import {useState, useEffect} from 'react'
+import {useState, useEffect } from 'react'
 import { getAllSongs } from '../../apiCalls'
+import PropTypes from 'prop-types'
 
 
 function AlbumCard( { album_id, title, setServerError, searchText, allLyrics } ) {
@@ -20,9 +21,8 @@ function AlbumCard( { album_id, title, setServerError, searchText, allLyrics } )
 
     const filteredSongs = songs.filter(song => {
         const matchingLyrics = allLyrics.find(lyric => lyric.song_id === song.song_id)
-
-        if (searchText) {
-            return matchingLyrics && matchingLyrics.lyrics.toLowerCase().includes(searchText.toLowerCase())
+        if (searchText && matchingLyrics) {
+            return matchingLyrics.lyrics.toLowerCase().includes(searchText.toLowerCase())
         } else {
             return true
         }
@@ -78,7 +78,7 @@ function AlbumCard( { album_id, title, setServerError, searchText, allLyrics } )
                     <div className='album-title'>
                         <img
                             className='openCloseImg'
-                            alt='music symbol with a down arrow to open song list'
+                            alt='music symbol with an up arrow to close song list'
                             src={closeList}
                             onClick={handleDropdown}
                         />
@@ -89,7 +89,7 @@ function AlbumCard( { album_id, title, setServerError, searchText, allLyrics } )
                 ) : (
                     <img
                         className='openCloseImg'
-                        alt='music symbol with an up arrow to close song list'
+                        alt='music symbol with a down arrow to open song list'
                         src={dropdown}
                         onClick={handleDropdown}
                     />
@@ -101,3 +101,11 @@ function AlbumCard( { album_id, title, setServerError, searchText, allLyrics } )
 }
 
 export default AlbumCard
+
+AlbumCard.propTypes = {
+    album_id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    setServerError: PropTypes.func.isRequired,
+    searchText: PropTypes.string.isRequired,
+    allLyrics: PropTypes.array.isRequired,
+  }
