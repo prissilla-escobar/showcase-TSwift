@@ -1,0 +1,41 @@
+.search-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(91deg, rgb(81, 112, 255, .5) 0%, rgb(255, 102, 196, .5) 100%) 0px 0px / 100% 100%;
+    width: 20%;
+    position: fixed;
+    height: 10%;
+    top: 2em;
+    right: 10em;
+}
+
+@media screen and (max-width: 1050px) {
+
+    input {
+        width: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        justify-content: center;
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+
+    input {
+        width: 90%;
+        padding: 0px;
+        margin-left: .5em;
+    }
+
+    .search-area {
+        margin-top: 3.5em;
+        height: 5%;
+        width: 30%;
+    }
+}

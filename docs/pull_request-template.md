@@ -1,7 +1,6 @@
 ### Summary:
 
 - File(s) added/changed: 
-- Description: Code cleanup, formatting
 
 ### Type of change
 
