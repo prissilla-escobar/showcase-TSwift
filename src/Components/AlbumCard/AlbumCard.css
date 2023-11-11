@@ -2,7 +2,7 @@
     display: flex;
     background: linear-gradient(91deg, rgb(81, 112, 255, .4) 0%, rgb(255, 102, 196, .4) 100%) 0px 0px / 100% 100%;
     width: 60%;
-    margin-top: 8em;
+    margin-top: 5em;
     margin-left: 5em;
     margin-bottom: 8em;
 }
@@ -73,3 +73,14 @@
     text-stroke: .2px black;
   }
   
+  .song-count {
+    font-size: 1.1em;
+    font-weight: bolder;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    margin-bottom: .5em;
+}
