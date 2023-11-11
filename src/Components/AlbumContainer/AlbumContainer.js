@@ -1,7 +1,7 @@
 import './AlbumContainer.css'
 import AlbumCard from '../AlbumCard/AlbumCard'
 
-function AlbumContainer({ albums, setServerError }) {
+function AlbumContainer({ albums, setServerError, searchText, allLyrics }) {
     const sortedAlbums = albums.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
     
     const albumCards = sortedAlbums.map(album => {
@@ -12,14 +12,19 @@ function AlbumContainer({ albums, setServerError }) {
             title={album.title}
             album_releaseDate={album.release_date}
             setServerError={setServerError}
+            searchText={searchText}
+            allLyrics={allLyrics}
         />
     )
     })
 
     return (
-        <div className='album-container-wrapper'>
-            <div className='albums-container'>
-                {albumCards}
+        <div>
+        <h1 className='instructions'>Lyrics of Taylor Swift</h1>
+            <div className='album-container-wrapper'>
+                <div className='albums-container'>
+                    {albumCards}
+                </div>
             </div>
         </div>
     )
