@@ -28,9 +28,26 @@ export function getSongLyrics(songID) {
     return fetch(`https://taylor-swift-api.sarbo.workers.dev/lyrics/${songID}`).then(
         (response) => {
         if (!response.ok) {
-            throw new Error(`Song(s) not found.`);
+            throw new Error(`Lyrics not found.`);
         }
         return response.json();
         }
     )
+}
+
+export const getAllSongLyrics = async () => {
+    const allLyricsCall = []
+
+    for (let i=1; i<=177; i++) {
+        const url = `https://taylor-swift-api.sarbo.workers.dev/lyrics/${i}`
+        allLyricsCall.push(fetch(url)
+        .then(response => response.json()))
+    }
+
+    try {
+        const allLyrics = await Promise.all(allLyricsCall)
+        return allLyrics
+    } catch (error) {
+        throw new Error(`Error fetching lyrics: ${error.message}`)
+    }
 }
