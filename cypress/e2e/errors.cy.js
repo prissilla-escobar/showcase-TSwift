@@ -17,7 +17,7 @@ describe('selected song page user flow', () => {
           cy.visit('http://localhost:3000')
           cy.contains('p', 'Oh no! Error fetching songs: Songs not found. It\'s me. Hi. I\'m the problem, it\'s me 👋')
           cy.get('button').click()
-          cy.url().should('eq', 'http://localhost:3000/');
+          cy.url().should('eq', 'http://localhost:3000/')
     })
 
     it('should display an error message for 400 error for songs', () => {
@@ -28,7 +28,7 @@ describe('selected song page user flow', () => {
           cy.visit('http://localhost:3000')
           cy.contains('p', 'Oh no! Error fetching songs: Songs not found. It\'s me. Hi. I\'m the problem, it\'s me 👋')
           cy.get('button').click()
-          cy.url().should('eq', 'http://localhost:3000/');
+          cy.url().should('eq', 'http://localhost:3000/')
     })
 
     it('should display an error message for 500 error for albums', () => {
@@ -39,6 +39,6 @@ describe('selected song page user flow', () => {
           cy.visit('http://localhost:3000')
           cy.contains('p', 'Oh no! Error fetching albums: Album not found. It\'s me. Hi. I\'m the problem, it\'s me 👋')
           cy.get('button').click()
-          cy.url().should('eq', 'http://localhost:3000/');
+          cy.url().should('eq', 'http://localhost:3000/')
     })
 })

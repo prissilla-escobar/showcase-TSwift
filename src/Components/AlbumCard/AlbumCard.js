@@ -7,7 +7,6 @@ import {useState, useEffect } from 'react'
 import { getAllSongs } from '../../apiCalls'
 import PropTypes from 'prop-types'
 
-
 function AlbumCard( { album_id, title, setServerError, searchText, allLyrics } ) {
     const [songs, setSongs] = useState([])
     const [showSongs, setShowSongs] = useState(false)
@@ -69,33 +68,33 @@ function AlbumCard( { album_id, title, setServerError, searchText, allLyrics } )
     }
 
     return (
-            <div className='album-card'>
-                <img className='album-image' classID={`album-${title}`}  alt={`${title} album cover`} src={`${singleAlbum.image}`} />
+        <div className='album-card'>
+            <img className='album-image' classID={`album-${title}`}  alt={`${title} album cover`} src={`${singleAlbum.image}`} />
+            <div className='album-title'>
+                <h2 className='album-title-font'>{title}</h2>
+                {searchText && <div className='song-count'>{`${numFilteredSongs} songs with "${searchText}"`}</div>}
+                {showSongs ? (
                 <div className='album-title'>
-                    <h2 className='album-title-font'>{title}</h2>
-                    {searchText && <div className='song-count'>{`${numFilteredSongs} songs with "${searchText}"`}</div>}
-                    {showSongs ? (
-                    <div className='album-title'>
-                        <img
-                            className='openCloseImg'
-                            alt='music symbol with an up arrow to close song list'
-                            src={closeList}
-                            onClick={handleDropdown}
-                        />
-                        <div className='song-list'>
-                            {searchText ? filteredSongsList : albumSongsList}
-                        </div>
-                    </div>
-                ) : (
                     <img
                         className='openCloseImg'
-                        alt='music symbol with a down arrow to open song list'
-                        src={dropdown}
+                        alt='music symbol with an up arrow to close song list'
+                        src={closeList}
                         onClick={handleDropdown}
                     />
-                )}
+                    <div className='song-list'>
+                        {searchText ? filteredSongsList : albumSongsList}
+                    </div>
                 </div>
+            ) : (
+                <img
+                    className='openCloseImg'
+                    alt='music symbol with a down arrow to open song list'
+                    src={dropdown}
+                    onClick={handleDropdown}
+                />
+                )}
             </div>
+        </div>
 
     )
 }

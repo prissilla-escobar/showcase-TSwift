@@ -19,7 +19,7 @@ Cypress.Commands.add('stubGetAllSongLyrics', () => {
         cy.intercept('GET', url, {
           statusCode: 200,
           body: fixtureData[i - 1],
-        }).as(`getAllSongLyrics_${i}`);
+        }).as(`getAllSongLyrics_${i}`)
       }
     })
   })

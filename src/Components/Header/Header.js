@@ -15,9 +15,9 @@ function Header({ setSearchText }) {
     }, [atHomePath, setSearchText])
 
     return (
-            <div className='header'>
-                {atHomePath && <Search setSearchText={setSearchText} />}
-            </div>
+        <div className='header'>
+            {atHomePath && <Search setSearchText={setSearchText} />}
+        </div>
     )
 }
 
