@@ -23,17 +23,38 @@ describe('selected song page user flow', () => {
     })
 
     it('should display songs on dropdown', () => {
-        cy.get('.albums-container .album-card')
-          .eq(0).should('exist')
-          .as('albumCard')
-          .find('.album-image').should('be.visible')
-          .invoke('attr', 'alt').should('eq', '1989 album cover')
-        cy.get('@albumCard')
-          .find('h2').should('be.visible')
-          .should('have.text', '1989')
-        cy.get('@albumCard')
-          .find('.openCloseImg').should('exist')
-            .invoke('attr', 'alt').should('eq', 'music symbol with a down arrow to open song list')
-    })
+        cy.assertAlbumCard(0, {
+            alt: '1989 album cover',
+            title: '1989',
+            openCloseImgAlt: 'music symbol with a down arrow to open song list',
+            openCloseImgSelector: '.openCloseImg',
+            numberSongs: 2,
+            song1: "All You Had to Do Was Stay",
+            song2: "Clean"
+        })
+        cy.assertAlbumCard(1, {
+            alt: 'Reputation album cover',
+            title: 'Reputation',
+            openCloseImgAlt: 'music symbol with a down arrow to open song list',
+            openCloseImgSelector: '.openCloseImg',
+            numberSongs: 2,
+            song1:"Delicate",
+            song2: "So It Goes…"
+        })
+        cy.assertAlbumCard(2, {
+            alt: 'Midnights album cover',
+            title: 'Midnights',
+            openCloseImgAlt: 'music symbol with a down arrow to open song list',
+            openCloseImgSelector: '.openCloseImg',
+            numberSongs: 2,
+            song1:"Hits Different",
+            song2: "You're Losing Me"
+        })
 
+        cy.get('.albums-container .album-card')
+          .eq(0)
+          .get('.song-list')
+            .eq(0).click()
+            cy.location('pathname').should('eq', '/song/4')
+    })
 })
