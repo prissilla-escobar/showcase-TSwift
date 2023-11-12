@@ -30,6 +30,7 @@ Introducing an immersive and user-friendly application designed for avid Taylor 
 - Use a consistent, modular file structure
 - Maintain well-structured code with minimal redundancy
 - Write robust tests using Cypress
+- Create a responsive design that is accessible accross screen sizes
 ```
 
 ### User Stories
@@ -42,6 +43,7 @@ Users should be able to:
 - See a counter on each album as to how many songs have my searched input value
 - See a loading state if data is loading
 - See errors if there are server errors
+- Have a responsive design across different screens
 ```
 
 ### Preview
@@ -52,13 +54,29 @@ More Images
 
 <div align="center">
 
+### Error Component
+
 ![Error](https://github.com/prissilla-escobar/showcase-TSwift/assets/130513948/c9a0d063-03c4-41a1-a7c7-421af700b047)
+
+### Loading State
 
 ![Loading in Homepage](https://github.com/prissilla-escobar/showcase-TSwift/assets/130513948/3fe0d602-68b5-46fd-8891-22feacfd54e8)
 
 ![Loading in Selected Song Page](https://github.com/prissilla-escobar/showcase-TSwift/assets/130513948/054b567f-d646-45ac-80a6-51467e0b61bc)
 
-![](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbW9qaGp6N3Z1eTIyMzVmajN1ODhsdmt0dmx1bDN2b2JsNDA0eThhZiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/e98YrNYM0unmzMMZzN/giphy.gif)
+### Responsive Design
+
+![Screenshot 2023-11-12 at 11 08 12 AM](https://github.com/prissilla-escobar/showcase-TSwift/assets/130513948/17f5b6eb-8265-43e1-bb1e-d829a04c95e5)
+
+![Screenshot 2023-11-12 at 11 09 54 AM](https://github.com/prissilla-escobar/showcase-TSwift/assets/130513948/72f2bbbd-eb0d-4b43-9b8f-c4f16b633b78)
+
+![Screenshot 2023-11-12 at 11 09 08 AM](https://github.com/prissilla-escobar/showcase-TSwift/assets/130513948/dc464bad-b27a-4c15-8a61-6ba055d0a850)
+
+![Screenshot 2023-11-12 at 11 10 17 AM](https://github.com/prissilla-escobar/showcase-TSwift/assets/130513948/66640d0e-9a0c-450e-ac05-f466ff0e603b)
+
+![Screenshot 2023-11-12 at 11 11 29 AM](https://github.com/prissilla-escobar/showcase-TSwift/assets/130513948/a7db5e72-75f9-40d8-9ddd-e88b6146ccc2)
+
+![Screenshot 2023-11-12 at 11 10 40 AM](https://github.com/prissilla-escobar/showcase-TSwift/assets/130513948/171c215e-b466-4ecc-b4b3-8535535cb4ea)
 
 </details>
 
