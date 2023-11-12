@@ -20,7 +20,7 @@ export async function getAllSongs() {
         }
         return response.json()
     } catch (error) {
-        throw new Error(`Error fetching albums: ${error.message}`)
+        throw new Error(`Error fetching songs: ${error.message}`)
     }
 }
 
