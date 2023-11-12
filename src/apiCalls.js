@@ -1,7 +1,7 @@
 export async function getAlbums() {
     let Url = 'https://taylor-swift-api.sarbo.workers.dev/albums'
     try {
-        const response = await fetch(Url);
+        const response = await fetch(Url)
         if (!response.ok) {
             throw new Error(`Album not found.`)
         }
@@ -14,7 +14,7 @@ export async function getAlbums() {
 export async function getAllSongs() {
     let Url = 'https://taylor-swift-api.sarbo.workers.dev/songs'
     try {
-        const response = await fetch(Url);
+        const response = await fetch(Url)
         if (!response.ok) {
             throw new Error(`Songs not found.`)
         }
@@ -28,9 +28,9 @@ export function getSongLyrics(songID) {
     return fetch(`https://taylor-swift-api.sarbo.workers.dev/lyrics/${songID}`).then(
         (response) => {
         if (!response.ok) {
-            throw new Error(`Lyrics not found.`);
+            throw new Error(`Lyrics not found.`)
         }
-        return response.json();
+        return response.json()
         }
     )
 }
@@ -45,7 +45,7 @@ export const getAllSongLyrics = async () => {
         .catch((error) => {
             console.error(`Error fetching lyrics for song ${i}: ${error.message}`)
             return null
-          })
+        })
         )
     }
 

@@ -61,7 +61,7 @@ function SelectedSongLyrics({ setServerError, setIsLoading }) {
                 <Link to={`/song/${single.song_id}`} key={single.song_id} style={{color: `inherit`, textDecoration: `inherit`}} className='songss'>
                     {single.title}
                 </Link>
-                )
+            )
         } else {
            return null
         }
