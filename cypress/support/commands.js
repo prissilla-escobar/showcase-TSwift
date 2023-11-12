@@ -49,3 +49,13 @@ Cypress.Commands.add('stubGetAllSongLyrics', () => {
       cy.get('.song-list').children().last().should('have.text', song2)
     })
   })
+
+Cypress.Commands.add('searchFor', (input) => {
+  cy.get('#searchInput').type(input)
+    .get('#searchInput').should('have.value', input)
+})
+
+Cypress.Commands.add('clearSearch', () => {
+  cy.get('#searchInput').clear()
+  cy.get('#searchInput').should('have.value', '')
+})
