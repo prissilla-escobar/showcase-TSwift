@@ -1,29 +1,3 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
 Cypress.Commands.add('stubAlbums', () => {
     cy.intercept('GET', 'https://taylor-swift-api.sarbo.workers.dev/albums', {
         statusCode: 200,
@@ -50,6 +24,28 @@ Cypress.Commands.add('stubGetAllSongLyrics', () => {
     })
   })
 
-  Cypress.Commands.add('clickLink', (label) => {
-    cy.get('a').contains(label).click();
-})
+  Cypress.Commands.add('assertAlbumCard', (index, { alt, title, openCloseImgAlt, openCloseImgSelector, numberSongs, song1, song2 }) => {
+    cy.get('.albums-container .album-card')
+      .eq(index).should('exist')
+      .as('albumCard')
+      .find('.album-image').should('be.visible')
+      .invoke('attr', 'alt').should('eq', alt)
+
+    cy.get('@albumCard')
+    .within(() => {
+      cy.get('@albumCard')
+      .find('h2').should('be.visible')
+      .should('have.text', title)
+  
+      cy.get('@albumCard')
+        .find(openCloseImgSelector).should('exist')
+        .invoke('attr', 'alt').should('eq', openCloseImgAlt)
+      
+      cy.get('@albumCard')
+        .find(openCloseImgSelector).click()
+
+      cy.get('.song-list').children().should('have.length', numberSongs)
+      cy.get('.song-list').children().first().should('have.text', song1)
+      cy.get('.song-list').children().last().should('have.text', song2)
+    })
+  })
