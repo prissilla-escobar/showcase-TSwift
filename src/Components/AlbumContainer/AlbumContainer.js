@@ -1,5 +1,6 @@
 import './AlbumContainer.css'
 import AlbumCard from '../AlbumCard/AlbumCard'
+import PropTypes from 'prop-types'
 
 function AlbumContainer({ albums, setServerError, searchText, allLyrics }) {
     const sortedAlbums = albums.sort((a, b) => new Date(a.release_date) - new Date(b.release_date))
@@ -31,3 +32,10 @@ function AlbumContainer({ albums, setServerError, searchText, allLyrics }) {
 }
 
 export default AlbumContainer
+
+AlbumContainer.propTypes = {
+    albums: PropTypes.array.isRequired,
+    setServerError: PropTypes.func.isRequired,
+    searchText: PropTypes.string.isRequired,
+    allLyrics: PropTypes.array.isRequired,
+  }

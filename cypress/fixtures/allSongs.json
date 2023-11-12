@@ -1,0 +1,42 @@
+[
+    {
+        "song_id": 4,
+        "title": "All You Had to Do Was Stay",
+        "album_id": 1
+    },
+    {
+        "song_id": 9,
+        "title": "Clean",
+        "album_id": 1
+    },
+    {
+        "song_id": 19,
+        "title": "Tied Together with a Smile",
+        "album_id": 2
+    },
+    {
+        "song_id": 96,
+        "title": "Delicate",
+        "album_id": 6
+    },
+    {
+        "song_id": 97,
+        "title": "So It Goes…",
+        "album_id": 6
+    },
+    {
+        "song_id": 98,
+        "title": "ME!",
+        "album_id": 7
+    },
+    {
+        "song_id": 176,
+        "title": "Hits Different",
+        "album_id": 10
+    },
+    {
+        "song_id": 177,
+        "title": "You're Losing Me",
+        "album_id": 10
+    }
+]

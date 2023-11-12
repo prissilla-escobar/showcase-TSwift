@@ -1,5 +1,6 @@
 import './ServerError.css'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 function ServerError({ resetError, serverError}) {
 
@@ -18,3 +19,11 @@ function ServerError({ resetError, serverError}) {
 }
 
 export default ServerError
+
+ServerError.propTypes = {
+    serverError: PropTypes.shape({
+        hasError: PropTypes.bool.isRequired,
+        message:  PropTypes.string.isRequired,
+    }),
+    resetError: PropTypes.func.isRequired,
+  }

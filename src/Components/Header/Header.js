@@ -2,6 +2,7 @@ import './Header.css'
 import Search from '../Search/Search'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 function Header({ setSearchText }) {
     const { pathname } = useLocation()
@@ -21,3 +22,7 @@ function Header({ setSearchText }) {
 }
 
 export default Header
+
+Header.propTypes = {
+    setSearchText: PropTypes.func.isRequired,
+  }

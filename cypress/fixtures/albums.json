@@ -1,0 +1,17 @@
+[
+  {
+      "album_id": 1,
+      "title": "1989",
+      "release_date": "2014-10-27"
+  },
+  {
+      "album_id": 6,
+      "title": "Reputation",
+      "release_date": "2017-11-10"
+  },
+  {
+      "album_id": 10,
+      "title": "Midnights",
+      "release_date": "2022-10-21"
+  }
+]

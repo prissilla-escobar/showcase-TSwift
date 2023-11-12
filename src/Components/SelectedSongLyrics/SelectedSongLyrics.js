@@ -4,6 +4,7 @@ import { getSongLyrics, getAllSongs } from '../../apiCalls'
 import { useParams, Link } from 'react-router-dom'
 import { albumCovers } from '../../albumCovers'
 import home from '../../Assets/home (3).png'
+import PropTypes from 'prop-types'
 
 function SelectedSongLyrics({ setServerError, setIsLoading }) {
     const [songLyrics, setSongLyrics] = useState('')
@@ -87,3 +88,8 @@ function SelectedSongLyrics({ setServerError, setIsLoading }) {
 }
 
 export default SelectedSongLyrics
+
+SelectedSongLyrics.propTypes = {
+    setServerError: PropTypes.func.isRequired,
+    setIsLoading: PropTypes.func.isRequired
+}
